@@ -41,3 +41,34 @@ A licença geral do projeto ainda será definida. **Não há concessão explíci
 ## Segurança
 
 Consulte [SECURITY.md](SECURITY.md). Não publique credenciais, endereços de rede privada, chaves privadas, dumps de sistema ou dados pessoais.
+
+<!-- PDTI-GALERIA-INICIO -->
+## Capturas de tela
+
+Imagens de testes da **PDTI Revive 0.3.1** em máquina virtual. Clique para ampliar.
+
+<table>
+<tr>
+<td align="center" width="50%">
+<strong>Área de trabalho Xfce</strong><br>
+<a href="docs/imagens/01-area-de-trabalho.webp"><img src="docs/imagens/01-area-de-trabalho.webp" alt="Área de trabalho da PDTI Revive com Xfce" width="420"></a>
+</td>
+<td align="center" width="50%">
+<strong>PDTI Store — Explorar</strong><br>
+<a href="docs/imagens/02-pdti-store-explorar.webp"><img src="docs/imagens/02-pdti-store-explorar.webp" alt="PDTI Store mostrando categorias, aplicativos e ícones" width="340"></a>
+</td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<strong>PDTI Store — Instalados</strong><br>
+<a href="docs/imagens/03-pdti-store-instalados.webp"><img src="docs/imagens/03-pdti-store-instalados.webp" alt="PDTI Store listando aplicativos instalados" width="340"></a>
+</td>
+<td align="center" width="50%">
+<strong>AutoTune — Otimização de hardware</strong><br>
+<a href="docs/imagens/04-autotune.webp"><img src="docs/imagens/04-autotune.webp" alt="AutoTune detectando hardware e aplicando perfil econômico" width="340"></a>
+</td>
+</tr>
+</table>
+
+*As capturas mostram o projeto em desenvolvimento. O plano de fundo e as marcas de aplicativos podem pertencer a terceiros.*
+<!-- PDTI-GALERIA-FIM -->
