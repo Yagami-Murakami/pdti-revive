@@ -38,10 +38,6 @@ Antes de executar scripts de remasterização, leia a documentação, revise os 
 
 A licença geral do projeto ainda será definida. **Não há concessão explícita de licença para reutilização do código neste momento.** Imagens e marcas de terceiros, incluindo ícones recolhidos do AppStream, têm licenças próprias e não serão redistribuídos no repositório antes de revisão. Debian, Xfce, Flatpak e nomes de aplicativos pertencem aos respectivos projetos.
 
-## Segurança
-
-Consulte [SECURITY.md](SECURITY.md). Não publique credenciais, endereços de rede privada, chaves privadas, dumps de sistema ou dados pessoais.
-
 <!-- PDTI-GALERIA-INICIO -->
 ## Capturas de tela
 
