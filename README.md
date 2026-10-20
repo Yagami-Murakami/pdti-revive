@@ -145,7 +145,7 @@ As imagens abaixo são de testes da **PDTI Revive 0.3.1** em máquina virtual. C
 | Marco | Situação |
 | :--- | :--- |
 | Compilação das ISOs Lite e Standard | Concluída |
-| Testes em instalação limpa das edições Lite e Standard | **Concluídos (confirmados pelo mantenedor)** |
+| Testes em instalação limpa das edições Lite e Standard | **Confirmado** |
 | Flatpak instalado nas imagens | Confirmado nos logs de build |
 | Integridade dos artefatos com SHA-256 | Verificada |
 | Testes da loja e do AutoTune em VM | Realizados parcialmente |
@@ -169,7 +169,7 @@ Os hashes verificam a integridade dos arquivos; não representam homologação f
 
 ## Próximas etapas
 
-- [x] Finalizar testes limpos das edições **Lite** e **Standard** (conclusão confirmada pelo mantenedor).
+- [x] Finalizar testes limpos das edições **Lite** e **Standard**.
 - [x] Validar o **Flathub no primeiro acesso** sem configuração manual (teste confirmado pelo mantenedor).
 - [ ] Revisar as licenças dos ícones e outros recursos incorporados.
 - [ ] Publicar o código-fonte, os testes e os scripts de build após auditoria.
