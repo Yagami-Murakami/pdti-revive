@@ -10,7 +10,7 @@
   <img alt="Debian 13" src="https://img.shields.io/badge/Base-Debian%2013-A81D33?style=flat-square&logo=debian&logoColor=white">
   <img alt="Desktop Xfce" src="https://img.shields.io/badge/Desktop-Xfce-2869B1?style=flat-square">
   <img alt="Edições Lite e Standard" src="https://img.shields.io/badge/Edi%C3%A7%C3%B5es-Lite%20%2B%20Standard-556B2F?style=flat-square">
-  <img alt="Versão 0.3.1 em homologação" src="https://img.shields.io/badge/0.3.1-Em%20homologa%C3%A7%C3%A3o-E6A23C?style=flat-square">
+  <img alt="Versão 0.3.1 R7 em homologação" src="https://img.shields.io/badge/0.3.1%20R7-Em%20homologa%C3%A7%C3%A3o-E6A23C?style=flat-square">
 </p>
 
 [Visão geral](#visão-geral) · [PDTI Store](#pdti-store--central-própria-de-aplicativos) · [AutoTune](#autotune--otimização-inteligente) · [Edições](#edições) · [Demonstração](#demonstração-animada) · [Capturas](#capturas-de-tela) · [Status](#status-do-projeto)
@@ -29,7 +29,7 @@
 
 O **PDTI Revive** é um projeto de distribuição Linux voltado a tornar o uso do computador mais simples, mesmo em máquinas com recursos limitados. Combina a base do **Debian 13**, o ambiente gráfico **Xfce** e ferramentas desenvolvidas para facilitar a instalação de aplicativos e o ajuste do sistema.
 
-O desenvolvimento prioriza **leveza, manutenção prática e uma experiência familiar**. O projeto permanece em homologação: as ISOs já foram compiladas, mas ainda não são anunciadas aqui como lançamentos públicos.
+O desenvolvimento prioriza **leveza, manutenção prática e uma experiência familiar**. As duas ISOs da revisão **0.3.1 R7 (Lite e Standard) foram compiladas**, conforme confirmação do mantenedor. O projeto continua em homologação: estas imagens ainda não são anunciadas aqui como lançamentos públicos.
 
 ## Principais recursos
 
@@ -37,7 +37,7 @@ O desenvolvimento prioriza **leveza, manutenção prática e uma experiência fa
 | :--- | :--- |
 | **PDTI Store** | Catálogo organizado por categorias, busca, detalhes de aplicativos e ações de instalação ou remoção. |
 | **APT + Flatpak** | Acesso a programas dos repositórios Debian e suporte a aplicativos externos via Flathub. |
-| **Ícones de aplicativos** | Identificação visual com cache AppStream e imagens disponíveis offline quando incorporadas. |
+| **Ícones de aplicativos** | Identificação visual com cache offline e atualização automática dos metadados AppStream do Flathub na R7. |
 | **AutoTune** | Detecta características do hardware e ajusta o perfil de otimização do sistema. |
 | **Desktop Xfce** | Interface tradicional e personalizável, adequada ao objetivo de manter o sistema leve. |
 | **BIOS e UEFI** | Imagens híbridas preparadas para diferentes modos de inicialização. |
@@ -46,18 +46,29 @@ O desenvolvimento prioriza **leveza, manutenção prática e uma experiência fa
 
 A **PDTI Store** é a loja desenvolvida para o PDTI Revive. Em vez de depender do terminal para encontrar e instalar programas, o usuário encontra uma interface gráfica organizada, integrada ao Debian 13.
 
-A versão **0.3.1-5** reúne um catálogo local de **66 entradas** e apresenta informações para ajudar o usuário a escolher programas compatíveis com o computador.
+A versão **0.3.1-7** utiliza o catálogo online assinado **v103, com 68 aplicativos**, incluindo **Arduino IDE 2** e **Tor Browser**, e apresenta informações para ajudar o usuário a escolher programas compatíveis com o computador.
 
 **O que ela oferece:**
 
 - **Explorar e pesquisar:** navegação por categorias como internet, escritório, multimídia, design e utilitários.
-- **Identificação visual:** ícones próprios quando disponíveis; a versão testada incorpora **45 imagens reais para uso offline**, com fallback para os demais aplicativos.
+- **Identificação visual:** **45 ícones disponíveis offline** no pacote e busca dinâmica por ícones de aplicativos APT e Flatpak. Na **R7**, a loja atualiza os metadados AppStream do Flathub em segundo plano, com controle de intervalo, e recarrega os ícones disponíveis; sem conexão prévia, alguns ícones ainda podem usar a imagem genérica.
 - **Disponibilidade pelo APT:** consulta se um pacote está disponível ou instalado nos repositórios configurados do Debian.
 - **Instalar e remover:** operações de gerenciamento de pacotes integradas ao APT; em testes na VM, o **Geany foi instalado e desinstalado com sucesso**.
 - **Aplicativos externos:** suporte ao **Flatpak/Flathub** como opção complementar. A origem do aplicativo é indicada, inclusive quando o pacote é distribuído por terceiros.
 - **Página de detalhes:** descrição, origem, identificador, versão instalada/disponível, tamanho quando conhecido e informações de compatibilidade.
 - **Aplicativos instalados:** uma aba que reúne programas detectados no sistema e exibe versão, origem e tamanho quando disponíveis.
-- **Configurações:** controles de integração com Flatpak e de catálogo. O catálogo local utilizado nos testes apresentou **verificação de assinatura Ed25519** na interface.
+- **Configurações:** controles de integração com Flatpak e de catálogo remoto, com **verificação de assinatura Ed25519** antes de aceitar atualizações.
+
+### Catálogo online e atualização dos aplicativos
+
+O catálogo da PDTI Store pode ser atualizado **sem recompilar as ISOs**. O administrador utiliza o **PDTI Store Manager** para cadastrar e publicar novas entradas em um catálogo JSON assinado digitalmente; a loja verifica a assinatura Ed25519 antes de aplicá-lo. Isso atualiza a **lista de aplicativos disponíveis**, não os binários dos programas ou o sistema operacional.
+
+- [Catálogo online v103](catalog/catalog.json) e [assinatura](catalog/catalog.json.sig): **68 aplicativos**, incluindo **Arduino IDE 2** (`cc.arduino.IDE2`) e **Tor Browser Launcher** (`org.torproject.torbrowser-launcher`), oferecidos pelo Flatpak.
+- **R7 — ícones dinâmicos:** resolução de ícones e atualização dos metadados AppStream automaticamente ao abrir a loja, quando o Flathub e a rede estão disponíveis, sem travar a interface; a atualização respeita um intervalo entre tentativas.
+- **Modo Live CD:** o mantenedor confirmou que os novos ícones carregaram automaticamente em teste com internet, sem executar comandos manuais.
+- **Sem internet:** a loja mantém os ícones incorporados e os caches já disponíveis; ícones ainda não obtidos podem aparecer como genéricos.
+
+A sincronização do **catálogo de aplicativos** continua disponível pelas configurações da loja; a atualização automática do **AppStream** é um recurso distinto.
 
 ### Escolha de aplicativos de acordo com o hardware
 
@@ -68,7 +79,7 @@ A loja apresenta indicações de consumo, como **leve** e **moderado**, levando 
   <p><sub>Catálogo da PDTI Store em teste — aplicativos reconhecidos com ícones e indicação de disponibilidade.</sub></p>
 </div>
 
-> **Estado atual:** as funcionalidades APT e a interface foram exercitadas em máquina virtual. **O Flathub automático em instalação limpa foi testado com sucesso**, conforme confirmação do mantenedor: a loja reconheceu o repositório sem configuração manual. A instalação de cada aplicativo Flatpak ainda exige testes individuais; a presença no catálogo não garante disponibilidade em todas as arquiteturas.
+> **Estado atual:** as funcionalidades APT e a interface foram exercitadas em máquina virtual. O **Flathub automático em instalação limpa** foi validado nas revisões anteriores, e a **atualização automática de ícones no modo Live CD da R7** foi confirmada pelo mantenedor. Ainda são necessários testes de instalação limpa específicos da R7 nas duas edições; a presença de um aplicativo no catálogo não garante sua disponibilidade em todas as arquiteturas.
 
 ## AutoTune — otimização inteligente
 
@@ -152,22 +163,24 @@ As imagens abaixo são de testes da **PDTI Revive 0.3.1** em máquina virtual. C
 
 ## Status do projeto
 
-**Versão em teste: 0.3.1 · PDTI Store 0.3.1-5**
+**Versão em teste: 0.3.1 R7 · PDTI Store 0.3.1-7 · catálogo v103 (68 aplicativos)**
 
 | Marco | Situação |
 | :--- | :--- |
-| Compilação das ISOs Lite e Standard | Concluída |
-| Testes em instalação limpa das edições Lite e Standard | **Confirmado** |
-| Flatpak instalado nas imagens | Confirmado nos logs de build |
-| Integridade dos artefatos com SHA-256 | Verificada |
-| Testes da loja e do AutoTune em VM | Realizados parcialmente |
-| Flathub automático em instalação limpa | **Validado em teste de instalação limpa** |
+| Compilação das ISOs R7 Lite e Standard | **Concluída (confirmada pelo mantenedor)** |
+| Teste Live CD da R7 e carregamento automático dos ícones | **Confirmado pelo mantenedor** (edição testada não especificada) |
+| PDTI Store 0.3.1-7 e catálogo v103 | **Preparados** — 68 aplicativos |
+| Testes de instalação limpa Lite e Standard de revisões anteriores | **Confirmados** |
+| Instalação limpa de ambas as edições R7 | **Ainda não confirmada** |
+| Integração Flatpak/Flathub em instalação limpa anterior | **Validada** |
+| Hashes SHA-256 das ISOs R7 | **Aguardando conferência e registro público** |
+| Testes adicionais da loja e do AutoTune em VM | Em andamento |
 | Revisão das licenças dos ícones e homologação geral | Pendente |
 
 As imagens e o pacote da loja foram arquivados com verificações de integridade. **Ainda não há um download público homologado neste repositório.**
 
 <details>
-<summary><strong>Ver hashes SHA-256 dos artefatos 0.3.1</strong></summary>
+<summary><strong>Ver hashes SHA-256 de referência da R5 (artefatos anteriores)</strong></summary>
 
 | Artefato | SHA-256 |
 | :--- | :--- |
@@ -175,14 +188,18 @@ As imagens e o pacote da loja foram arquivados com verificações de integridade
 | `pdti-revive-lite-amd64-0.3.1-final.iso` | `a8a1fe52f8eba3b2f39c77dbfe1cddc554dc04956103888151ef724db6a69fb3` |
 | `pdti-revive-standard-amd64-0.3.1-final.iso` | `6c6c30b274a429cb4484d8755bfdb20fd38fc02b5b78cf1685f606361c02e238` |
 
-Os hashes verificam a integridade dos arquivos; não representam homologação funcional nem assinatura criptográfica de release.
+Os hashes acima são **da revisão R5**, não das ISOs R7. Os hashes R7 serão adicionados após verificação. Hashes verificam a integridade dos arquivos; não representam homologação funcional nem assinatura criptográfica de release.
 
 </details>
 
 ## Próximas etapas
 
 - [x] Finalizar testes limpos das edições **Lite** e **Standard**.
-- [x] Validar o **Flathub no primeiro acesso** sem configuração manual (teste confirmado pelo mantenedor).
+- [x] Validar o **Flathub no primeiro acesso** sem configuração manual (teste confirmado pelo mantenedor em versão anterior).
+- [x] Compilar as ISOs **R7 Lite e Standard** (conclusão confirmada pelo mantenedor).
+- [x] Validar no **Live CD R7** o carregamento automático dos ícones do Flathub (teste confirmado pelo mantenedor).
+- [ ] Concluir os testes de instalação limpa da **R7 nas duas edições**, incluindo o comportamento offline.
+- [ ] Conferir e publicar os hashes SHA-256 dos artefatos **R7**.
 - [ ] Revisar as licenças dos ícones e outros recursos incorporados.
 - [ ] Publicar o código-fonte, os testes e os scripts de build após auditoria.
 - [ ] Preparar as primeiras **Releases** públicas acompanhadas de instruções e checksums.
