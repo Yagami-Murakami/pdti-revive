@@ -13,7 +13,7 @@
   <img alt="Versão 0.3.1 em homologação" src="https://img.shields.io/badge/0.3.1-Em%20homologa%C3%A7%C3%A3o-E6A23C?style=flat-square">
 </p>
 
-[Visão geral](#visão-geral) · [Recursos](#principais-recursos) · [Edições](#edições) · [Capturas](#capturas-de-tela) · [Status](#status-do-projeto) · [Próximas etapas](#próximas-etapas)
+[Visão geral](#visão-geral) · [PDTI Store](#pdti-store--central-própria-de-aplicativos) · [AutoTune](#autotune--otimização-inteligente) · [Edições](#edições) · [Capturas](#capturas-de-tela) · [Status](#status-do-projeto)
 
 <a href="docs/imagens/01-area-de-trabalho.webp">
   <img src="docs/imagens/01-area-de-trabalho.webp" alt="Área de trabalho da PDTI Revive com Xfce" width="510">
@@ -41,6 +41,67 @@ O desenvolvimento prioriza **leveza, manutenção prática e uma experiência fa
 | **AutoTune** | Detecta características do hardware e ajusta o perfil de otimização do sistema. |
 | **Desktop Xfce** | Interface tradicional e personalizável, adequada ao objetivo de manter o sistema leve. |
 | **BIOS e UEFI** | Imagens híbridas preparadas para diferentes modos de inicialização. |
+
+## PDTI Store — central própria de aplicativos
+
+A **PDTI Store** é a loja desenvolvida para o PDTI Revive. Em vez de depender do terminal para encontrar e instalar programas, o usuário encontra uma interface gráfica organizada, integrada ao Debian 13.
+
+A versão **0.3.1-5** reúne um catálogo local de **66 entradas** e apresenta informações para ajudar o usuário a escolher programas compatíveis com o computador.
+
+**O que ela oferece:**
+
+- **Explorar e pesquisar:** navegação por categorias como internet, escritório, multimídia, design e utilitários.
+- **Identificação visual:** ícones próprios quando disponíveis; a versão testada incorpora **45 imagens reais para uso offline**, com fallback para os demais aplicativos.
+- **Disponibilidade pelo APT:** consulta se um pacote está disponível ou instalado nos repositórios configurados do Debian.
+- **Instalar e remover:** operações de gerenciamento de pacotes integradas ao APT; em testes na VM, o **Geany foi instalado e desinstalado com sucesso**.
+- **Aplicativos externos:** suporte ao **Flatpak/Flathub** como opção complementar. A origem do aplicativo é indicada, inclusive quando o pacote é distribuído por terceiros.
+- **Página de detalhes:** descrição, origem, identificador, versão instalada/disponível, tamanho quando conhecido e informações de compatibilidade.
+- **Aplicativos instalados:** uma aba que reúne programas detectados no sistema e exibe versão, origem e tamanho quando disponíveis.
+- **Configurações:** controles de integração com Flatpak e de catálogo. O catálogo local utilizado nos testes apresentou **verificação de assinatura Ed25519** na interface.
+
+### Escolha de aplicativos de acordo com o hardware
+
+A loja apresenta indicações de consumo, como **leve** e **moderado**, levando em conta o foco da distribuição em PCs antigos. Programas que pedem mais recursos recebem avisos, mas a decisão de instalar continua com o usuário.
+
+<div align="center">
+  <a href="docs/imagens/02-pdti-store-explorar.webp"><img src="docs/imagens/02-pdti-store-explorar.webp" alt="PDTI Store com catálogo, ícones e indicação de consumo de recursos" width="460"></a>
+  <p><sub>Catálogo da PDTI Store em teste — aplicativos reconhecidos com ícones e indicação de disponibilidade.</sub></p>
+</div>
+
+> **Estado atual:** as funcionalidades APT e a interface foram exercitadas em máquina virtual. A instalação de cada aplicativo Flatpak e a configuração automática do Flathub em instalação limpa ainda exigem homologação individual. A presença no catálogo não garante que o provedor disponibilize o pacote em todas as arquiteturas.
+
+## AutoTune — otimização inteligente
+
+O **PDTI Revive AutoTune** é o componente que adapta os ajustes do sistema ao computador. Seu objetivo é **priorizar fluidez e uso consciente de memória**, sobretudo em equipamentos antigos, sem exigir que o usuário conheça cada configuração do Linux.
+
+### Como funciona
+
+**1. Identifica o hardware.** A interface apresenta dados como processador, quantidade de memória RAM, tipo de armazenamento e características gráficas.
+
+**2. Seleciona um perfil.** O AutoTune usa as informações detectadas para recomendar ou aplicar um perfil de otimização. A interface permite visualizar o **modo automático** e o **modo manual**, além de exibir a pontuação calculada para o equipamento.
+
+**3. Mostra o que foi ajustado.** Em vez de esconder as alterações, a central lista as otimizações ativas e os avisos pertinentes.
+
+**4. Oferece controle ao usuário.** A interface inclui a opção de restaurar configurações originais. Algumas alterações, especialmente relacionadas à memória de troca, podem exigir reinicialização.
+
+### Exemplo real de teste
+
+Em uma máquina virtual de teste com aproximadamente **2 GB de RAM** e armazenamento identificado como **HDD**, o AutoTune selecionou o **perfil Econômico** e apresentou as seguintes otimizações:
+
+| Área | Ajuste mostrado no teste | Objetivo |
+| :--- | :--- | :--- |
+| Interface | Compositor e efeitos visuais desativados | Reduzir trabalho gráfico e consumo de memória |
+| Memória | ZRAM configurada com compressão **zstd** | Ajudar a aproveitar melhor a RAM disponível |
+| Disco | Ajustes no despejo de páginas de memória modificadas | Melhorar o comportamento de escrita em disco lento |
+| Arquivos | Limite para miniaturas locais | Reduzir trabalho adicional no gerenciador de arquivos |
+| Proteção | Regra para RAM crítica | Evitar um perfil inadequado quando há pouca memória |
+
+<div align="center">
+  <a href="docs/imagens/04-autotune.webp"><img src="docs/imagens/04-autotune.webp" alt="AutoTune exibindo hardware detectado, perfil econômico e ajustes ativos" width="440"></a>
+  <p><sub>AutoTune em funcionamento na VM, com hardware identificado, perfil ativo e explicação dos ajustes.</sub></p>
+</div>
+
+> **Importante:** o AutoTune não aumenta a capacidade física do computador nem garante ganhos de velocidade em qualquer cenário. O efeito de cada ajuste depende do hardware e dos programas utilizados. O comportamento das regras ainda faz parte dos testes de homologação.
 
 ## Edições
 
