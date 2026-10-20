@@ -13,7 +13,7 @@
   <img alt="Versão 0.3.1 em homologação" src="https://img.shields.io/badge/0.3.1-Em%20homologa%C3%A7%C3%A3o-E6A23C?style=flat-square">
 </p>
 
-[Visão geral](#visão-geral) · [PDTI Store](#pdti-store--central-própria-de-aplicativos) · [AutoTune](#autotune--otimização-inteligente) · [Edições](#edições) · [Capturas](#capturas-de-tela) · [Status](#status-do-projeto)
+[Visão geral](#visão-geral) · [PDTI Store](#pdti-store--central-própria-de-aplicativos) · [AutoTune](#autotune--otimização-inteligente) · [Edições](#edições) · [Demonstração](#demonstração-animada) · [Capturas](#capturas-de-tela) · [Status](#status-do-projeto)
 
 <a href="docs/imagens/01-area-de-trabalho.webp">
   <img src="docs/imagens/01-area-de-trabalho.webp" alt="Área de trabalho da PDTI Revive com Xfce" width="510">
@@ -112,6 +112,18 @@ Em uma máquina virtual de teste com aproximadamente **2 GB de RAM** e armazenam
 | Compartilha a PDTI Store e o AutoTune. | Compartilha a PDTI Store e o AutoTune. |
 
 > A compatibilidade e o desempenho dependem do hardware. Os requisitos mínimos definitivos serão publicados após os testes de homologação.
+
+## Demonstração animada
+
+Veja o **PDTI Revive em funcionamento**, incluindo a área de trabalho, a PDTI Store e o AutoTune.
+
+<div align="center">
+  <img src="docs/imagens/pdti-revive-demonstracao.gif"
+       alt="Demonstração animada do PDTI Revive"
+       width="700">
+
+  <p><sub>Demonstração real do sistema em desenvolvimento.</sub></p>
+</div>
 
 ## Capturas de tela
 
