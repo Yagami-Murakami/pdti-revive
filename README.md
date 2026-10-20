@@ -1,70 +1,134 @@
+<div align="center">
+
 # PDTI Revive
 
-Distribuição Linux em desenvolvimento, baseada no **Debian 13 (Trixie)** e no ambiente gráfico **Xfce**, com foco em facilitar o uso de computadores antigos e proporcionar uma experiência amigável.
+### Uma nova vida para computadores antigos.
 
-> **Status: pré-lançamento / homologação.** As imagens ISO 0.3.1 foram compiladas e verificadas por SHA-256, mas ainda exigem testes completos em instalações limpas (Lite e Standard), revisão das licenças dos ícones incorporados e validação do Flathub automático antes da distribuição pública.
+**Distribuição Linux baseada no Debian 13 (Trixie), com Xfce, aplicativos acessíveis e otimização inteligente para diferentes perfis de hardware.**
+
+<p>
+  <img alt="Debian 13" src="https://img.shields.io/badge/Base-Debian%2013-A81D33?style=flat-square&logo=debian&logoColor=white">
+  <img alt="Desktop Xfce" src="https://img.shields.io/badge/Desktop-Xfce-2869B1?style=flat-square">
+  <img alt="Edições Lite e Standard" src="https://img.shields.io/badge/Edi%C3%A7%C3%B5es-Lite%20%2B%20Standard-556B2F?style=flat-square">
+  <img alt="Versão 0.3.1 em homologação" src="https://img.shields.io/badge/0.3.1-Em%20homologa%C3%A7%C3%A3o-E6A23C?style=flat-square">
+</p>
+
+[Visão geral](#visão-geral) · [Recursos](#principais-recursos) · [Edições](#edições) · [Capturas](#capturas-de-tela) · [Status](#status-do-projeto) · [Próximas etapas](#próximas-etapas)
+
+<a href="docs/imagens/01-area-de-trabalho.webp">
+  <img src="docs/imagens/01-area-de-trabalho.webp" alt="Área de trabalho da PDTI Revive com Xfce" width="510">
+</a>
+
+<sub>Prévia da área de trabalho • clique na imagem para ampliar</sub>
+
+</div>
+
+---
+
+## Visão geral
+
+O **PDTI Revive** é um projeto de distribuição Linux voltado a tornar o uso do computador mais simples, mesmo em máquinas com recursos limitados. Combina a base do **Debian 13**, o ambiente gráfico **Xfce** e ferramentas desenvolvidas para facilitar a instalação de aplicativos e o ajuste do sistema.
+
+O desenvolvimento prioriza **leveza, manutenção prática e uma experiência familiar**. O projeto permanece em homologação: as ISOs já foram compiladas, mas ainda não são anunciadas aqui como lançamentos públicos.
+
+## Principais recursos
+
+| Recurso | O que oferece |
+| :--- | :--- |
+| **PDTI Store** | Catálogo organizado por categorias, busca, detalhes de aplicativos e ações de instalação ou remoção. |
+| **APT + Flatpak** | Acesso a programas dos repositórios Debian e suporte a aplicativos externos via Flathub. |
+| **Ícones de aplicativos** | Identificação visual com cache AppStream e imagens disponíveis offline quando incorporadas. |
+| **AutoTune** | Detecta características do hardware e ajusta o perfil de otimização do sistema. |
+| **Desktop Xfce** | Interface tradicional e personalizável, adequada ao objetivo de manter o sistema leve. |
+| **BIOS e UEFI** | Imagens híbridas preparadas para diferentes modos de inicialização. |
 
 ## Edições
 
-- **Lite:** perfil pensado para máquinas mais modestas.
-- **Standard:** perfil com mais recursos para uso diário.
+| **Lite** | **Standard** |
+| :--- | :--- |
+| Pensada para computadores modestos e uso com menos recursos. | Pensada para quem busca uma experiência mais completa no uso diário. |
+| Prioriza economia de memória e fluidez. | Reúne mais recursos e aplicativos. |
+| Compartilha a PDTI Store e o AutoTune. | Compartilha a PDTI Store e o AutoTune. |
 
-## Funcionalidades em desenvolvimento
+> A compatibilidade e o desempenho dependem do hardware. Os requisitos mínimos definitivos serão publicados após os testes de homologação.
 
-- **PDTI Store 0.3.1-5:** catálogo de aplicativos, busca e estados de disponibilidade, detalhes dos programas, integração com APT e Flatpak/Flathub.
-- **AutoTune:** ajustes de perfil conforme as características do hardware.
-- Ícones de aplicativos com fallback local e suporte a cache AppStream.
-- Ferramentas de compilação e remasterização de ISOs híbridas BIOS/UEFI.
+## Capturas de tela
 
-## Progresso da versão 0.3.1
+As imagens abaixo são de testes da **PDTI Revive 0.3.1** em máquina virtual. Clique em cada uma para visualizar em tamanho maior.
 
-As duas imagens (Lite e Standard) foram compiladas com a PDTI Store 0.3.1-5 e o Flatpak no sistema. O usuário confirmou a verificação do manifesto SHA-256:
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <a href="docs/imagens/02-pdti-store-explorar.webp"><img src="docs/imagens/02-pdti-store-explorar.webp" alt="PDTI Store com categorias, pesquisa e aplicativos disponíveis" width="340"></a><br>
+      <strong>PDTI Store · Explorar aplicativos</strong>
+    </td>
+    <td align="center" width="50%">
+      <a href="docs/imagens/03-pdti-store-instalados.webp"><img src="docs/imagens/03-pdti-store-instalados.webp" alt="PDTI Store com relação de programas instalados" width="340"></a><br>
+      <strong>PDTI Store · Aplicativos instalados</strong>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2">
+      <a href="docs/imagens/04-autotune.webp"><img src="docs/imagens/04-autotune.webp" alt="AutoTune mostrando informações do hardware e perfil econômico" width="390"></a><br>
+      <strong>AutoTune · Otimização conforme o hardware</strong>
+    </td>
+  </tr>
+</table>
+
+<sub>Capturas demonstrativas. O papel de parede e marcas de aplicativos podem estar sujeitos a direitos de terceiros.</sub>
+
+## Status do projeto
+
+**Versão em teste: 0.3.1 · PDTI Store 0.3.1-5**
+
+| Marco | Situação |
+| :--- | :--- |
+| Compilação das ISOs Lite e Standard | Concluída |
+| Flatpak instalado nas imagens | Confirmado nos logs de build |
+| Integridade dos artefatos com SHA-256 | Verificada |
+| Testes da loja e do AutoTune em VM | Realizados parcialmente |
+| Flathub automático em instalação limpa | Validação pendente |
+| Revisão das licenças dos ícones e homologação geral | Pendente |
+
+As imagens e o pacote da loja foram arquivados com verificações de integridade. **Ainda não há um download público homologado neste repositório.**
+
+<details>
+<summary><strong>Ver hashes SHA-256 dos artefatos 0.3.1</strong></summary>
 
 | Artefato | SHA-256 |
-| --- | --- |
+| :--- | :--- |
 | `pdti-store_0.3.1-5_all.deb` | `d23d28a6499f6936736a8c1023a81edfcb8a6d83bfce7933836b63703df6fd0c` |
 | `pdti-revive-lite-amd64-0.3.1-final.iso` | `a8a1fe52f8eba3b2f39c77dbfe1cddc554dc04956103888151ef724db6a69fb3` |
 | `pdti-revive-standard-amd64-0.3.1-final.iso` | `6c6c30b274a429cb4484d8755bfdb20fd38fc02b5b78cf1685f606361c02e238` |
 
-**Integridade do arquivo não significa homologação funcional ou aprovação para distribuição.**
+Os hashes verificam a integridade dos arquivos; não representam homologação funcional nem assinatura criptográfica de release.
 
-## Código e builds
+</details>
 
-Este repositório está sendo estruturado. Serão adicionados os fontes revisados, testes, documentação e scripts de construção após auditoria. As ISOs, discos virtuais, raízes de sistema temporárias e pacotes gerados **não devem ser commitados no Git**.
+## Próximas etapas
 
-Antes de executar scripts de remasterização, leia a documentação, revise os destinos de escrita e use um ambiente de teste. Não execute builds desconhecidos com privilégios de administrador.
+- [ ] Finalizar testes limpos das edições **Lite** e **Standard**.
+- [ ] Validar o **Flathub no primeiro acesso** sem configuração manual.
+- [ ] Revisar as licenças dos ícones e outros recursos incorporados.
+- [ ] Publicar o código-fonte, os testes e os scripts de build após auditoria.
+- [ ] Preparar as primeiras **Releases** públicas acompanhadas de instruções e checksums.
 
-## Licenças e terceiros
+## Desenvolvimento e documentação
 
-A licença geral do projeto ainda será definida. **Não há concessão explícita de licença para reutilização do código neste momento.** Imagens e marcas de terceiros, incluindo ícones recolhidos do AppStream, têm licenças próprias e não serão redistribuídos no repositório antes de revisão. Debian, Xfce, Flatpak e nomes de aplicativos pertencem aos respectivos projetos.
+O repositório está sendo estruturado de forma gradual. Consulte o [histórico de alterações](CHANGELOG.md) e a [galeria de imagens](docs/imagens/ORIGEM.md).
 
-<!-- PDTI-GALERIA-INICIO -->
-## Capturas de tela
+As ISOs, discos virtuais e diretórios temporários de compilação ficam fora do histórico Git; o objetivo é manter o repositório dedicado ao código-fonte e à documentação.
 
-Imagens de testes da **PDTI Revive 0.3.1** em máquina virtual. Clique para ampliar.
+## Licenciamento
 
-<table>
-<tr>
-<td align="center" width="50%">
-<strong>Área de trabalho Xfce</strong><br>
-<a href="docs/imagens/01-area-de-trabalho.webp"><img src="docs/imagens/01-area-de-trabalho.webp" alt="Área de trabalho da PDTI Revive com Xfce" width="420"></a>
-</td>
-<td align="center" width="50%">
-<strong>PDTI Store — Explorar</strong><br>
-<a href="docs/imagens/02-pdti-store-explorar.webp"><img src="docs/imagens/02-pdti-store-explorar.webp" alt="PDTI Store mostrando categorias, aplicativos e ícones" width="340"></a>
-</td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<strong>PDTI Store — Instalados</strong><br>
-<a href="docs/imagens/03-pdti-store-instalados.webp"><img src="docs/imagens/03-pdti-store-instalados.webp" alt="PDTI Store listando aplicativos instalados" width="340"></a>
-</td>
-<td align="center" width="50%">
-<strong>AutoTune — Otimização de hardware</strong><br>
-<a href="docs/imagens/04-autotune.webp"><img src="docs/imagens/04-autotune.webp" alt="AutoTune detectando hardware e aplicando perfil econômico" width="340"></a>
-</td>
-</tr>
-</table>
+A licença geral do código ainda não foi definida. Ícones, marcas, temas e outros componentes de terceiros obedecem às suas respectivas licenças. Materiais pendentes de revisão não serão oferecidos como redistribuição pública.
 
-*As capturas mostram o projeto em desenvolvimento. O plano de fundo e as marcas de aplicativos podem pertencer a terceiros.*
-<!-- PDTI-GALERIA-FIM -->
+---
+
+<div align="center">
+
+**PDTI Revive** · Desenvolvido e mantido por [Yagami-Murakami](https://github.com/Yagami-Murakami)
+
+*Tecnologia acessível. Mais possibilidades para o hardware que você já tem.*
+
+</div>
