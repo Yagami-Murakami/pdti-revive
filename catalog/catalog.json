@@ -844,10 +844,22 @@
       "rationale": "Empacotamento comunitário não verificado pela Arduino. Para gravar placas físicas, verifique permissões USB e acesso à porta serial.",
       "status": "approved",
       "status_label": "Disponível no Flathub (pacote comunitário)"
+    },
+    {
+      "backend": "flatpak",
+      "category": "internet",
+      "description_pt_br": "Navegador com foco em privacidade que utiliza a rede Tor para reduzir o rastreamento online.",
+      "hardware_recommendation": "standard",
+      "id": "flatpak:tor-browser",
+      "name": "Tor Browser",
+      "package": "org.torproject.torbrowser-launcher",
+      "rationale": "Flathub. O launcher baixa e verifica o Tor Browser na primeira execução.",
+      "status": "approved",
+      "status_label": "Disponível no Flathub. Requer internet na primeira execução."
     }
   ],
   "catalog_label": "PDTI Store — Catálogo Online 0.3.1",
-  "catalog_version": 102,
+  "catalog_version": 103,
   "categories": [
     {
       "id": "internet",
@@ -878,7 +890,7 @@
       "label": "Em avaliação"
     }
   ],
-  "generated_at": "2026-10-20T01:47:17Z",
+  "generated_at": "2026-10-20T02:28:00Z",
   "min_client_version": "0.3.1",
   "schema_version": 1
 }
