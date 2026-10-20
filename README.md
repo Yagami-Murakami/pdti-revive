@@ -68,7 +68,7 @@ A loja apresenta indicações de consumo, como **leve** e **moderado**, levando 
   <p><sub>Catálogo da PDTI Store em teste — aplicativos reconhecidos com ícones e indicação de disponibilidade.</sub></p>
 </div>
 
-> **Estado atual:** as funcionalidades APT e a interface foram exercitadas em máquina virtual. A instalação de cada aplicativo Flatpak e a configuração automática do Flathub em instalação limpa ainda exigem homologação individual. A presença no catálogo não garante que o provedor disponibilize o pacote em todas as arquiteturas.
+> **Estado atual:** as funcionalidades APT e a interface foram exercitadas em máquina virtual. **O Flathub automático em instalação limpa foi testado com sucesso**, conforme confirmação do mantenedor: a loja reconheceu o repositório sem configuração manual. A instalação de cada aplicativo Flatpak ainda exige testes individuais; a presença no catálogo não garante disponibilidade em todas as arquiteturas.
 
 ## AutoTune — otimização inteligente
 
@@ -148,7 +148,7 @@ As imagens abaixo são de testes da **PDTI Revive 0.3.1** em máquina virtual. C
 | Flatpak instalado nas imagens | Confirmado nos logs de build |
 | Integridade dos artefatos com SHA-256 | Verificada |
 | Testes da loja e do AutoTune em VM | Realizados parcialmente |
-| Flathub automático em instalação limpa | Validação pendente |
+| Flathub automático em instalação limpa | **Validado em teste de instalação limpa** |
 | Revisão das licenças dos ícones e homologação geral | Pendente |
 
 As imagens e o pacote da loja foram arquivados com verificações de integridade. **Ainda não há um download público homologado neste repositório.**
@@ -169,7 +169,7 @@ Os hashes verificam a integridade dos arquivos; não representam homologação f
 ## Próximas etapas
 
 - [ ] Finalizar testes limpos das edições **Lite** e **Standard**.
-- [ ] Validar o **Flathub no primeiro acesso** sem configuração manual.
+- [x] Validar o **Flathub no primeiro acesso** sem configuração manual (teste confirmado pelo mantenedor).
 - [ ] Revisar as licenças dos ícones e outros recursos incorporados.
 - [ ] Publicar o código-fonte, os testes e os scripts de build após auditoria.
 - [ ] Preparar as primeiras **Releases** públicas acompanhadas de instruções e checksums.
