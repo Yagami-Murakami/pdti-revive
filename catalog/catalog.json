@@ -856,10 +856,22 @@
       "rationale": "Flathub. O launcher baixa e verifica o Tor Browser na primeira execução.",
       "status": "approved",
       "status_label": "Disponível no Flathub. Requer internet na primeira execução."
+    },
+    {
+      "backend": "flatpak",
+      "category": "office",
+      "description_pt_br": "Suíte de escritório para criar e editar documentos, planilhas, apresentações e arquivos PDF.",
+      "hardware_recommendation": "standard",
+      "id": "flatpak:wps-office",
+      "name": "WPS Office",
+      "package": "com.wps.Office",
+      "rationale": "Aplicativo proprietário distribuído no Flathub por terceiros, não verificado pelo fabricante. Compatível com x86_64.",
+      "status": "approved",
+      "status_label": "Flathub (terceiro, não verificado; 64 bits)"
     }
   ],
   "catalog_label": "PDTI Store — Catálogo Online 0.3.1",
-  "catalog_version": 103,
+  "catalog_version": 104,
   "categories": [
     {
       "id": "internet",
@@ -890,7 +902,7 @@
       "label": "Em avaliação"
     }
   ],
-  "generated_at": "2026-10-20T02:28:00Z",
+  "generated_at": "2026-10-22T01:47:21Z",
   "min_client_version": "0.3.1",
   "schema_version": 1
 }
