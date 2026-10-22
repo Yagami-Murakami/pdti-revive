@@ -105,6 +105,19 @@
       "status_label": "Aprovado (Disponível no Debian 13)"
     },
     {
+      "backend": "flatpak",
+      "category": "office",
+      "description_pt_br": "Suíte de escritório com editor de textos, planilhas, apresentações e suporte a documentos do Microsoft Office.",
+      "hardware_recommendation": "standard",
+      "id": "flatpak:wps-office",
+      "name": "WPS Office",
+      "package": "com.wps.Office",
+      "provider": "Flathub (pacote comunitário)",
+      "rationale": "Pacote Flatpak comunitário, proprietário e não verificado pela Kingsoft. Disponível apenas para x86_64 (amd64). O Flatpak pode ser mais antigo que o DEB oficial e requer internet para obter componentes.",
+      "status": "approved",
+      "status_label": "Flathub (terceiro, não verificado; 64 bits)"
+    },
+    {
       "backend": "apt",
       "candidate_version": "3.0.6~dfsg-1",
       "category": "office",
@@ -859,7 +872,7 @@
     }
   ],
   "catalog_label": "PDTI Store — Catálogo Online 0.3.1",
-  "catalog_version": 103,
+  "catalog_version": 104,
   "categories": [
     {
       "id": "internet",
@@ -890,7 +903,7 @@
       "label": "Em avaliação"
     }
   ],
-  "generated_at": "2026-10-20T02:28:00Z",
+  "generated_at": "2026-10-22T01:38:00Z",
   "min_client_version": "0.3.1",
   "schema_version": 1
 }
