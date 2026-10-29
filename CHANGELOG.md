@@ -2,6 +2,21 @@
 
 Este registro resume marcos do projeto. As versões anteriores são marcos de desenvolvimento, não necessariamente lançamentos públicos.
 
+## 0.3.2-dev — boot e instalador em teste (28/10/2026)
+
+- Imagem **Lite build6 bootlayout**: após ajuste de uma falha de boot observada nos testes, o mantenedor confirmou que o ambiente iniciou e o instalador abriu diretamente, sem a mensagem anterior.
+- SHA-256 da ISO local `pdti-revive-lite-amd64-0.3.2-build6-bootlayout.iso` validado por `sha256sum -c`: `fb8d297f805a4bc17c14c87df5b9b4538433ba608c410f68ff7a093f9c746945`.
+- Teste do **AutoTune** em computador Dell com funcionamento confirmado; objetivo de otimização geral para diferentes hardwares, não exclusiva desse equipamento.
+- Iniciada a etapa de planejamento/refinamento de **desempenho e navegação** para computadores variados. Não declarar ganho de desempenho comprovado antes de medições.
+- **Pendências:** homologação 0.3.2 Lite/Standard, testes em mais combinações BIOS/UEFI, revisão de licenças, disponibilização auditada do código e geração de release pública.
+- **Importante:** não há confirmação de uma ISO 0.3.2 Standard finalizada nem de release pública; este registro descreve os testes locais informados pelo mantenedor.
+
+## Catálogo v104 e revisões de inicialização (21–22/10/2026)
+
+- Catálogo remoto assinado da **PDTI Store v104 publicado**, com **69 aplicativos**, incluindo **WPS Office** (`com.wps.Office`) via Flatpak; pacote proprietário de terceiros e não verificado pelo fabricante.
+- Instalação do **WPS Office** confirmada em teste, porém **interface em pt-BR ainda pendente**.
+- Imagens 0.3.1 reempacotadas para boot com **GRUB2 BIOS/UEFI**; testes de inicialização positivos em QEMU e notebook com BIOS Legacy. Testes UEFI completos permanecem em aberto.
+
 ## 0.3.1 R7 — ícones automáticos no Live CD (20/10/2026)
 
 - **Lite e Standard R7 compiladas**, conforme confirmação do mantenedor. Revisão em homologação, sem publicação pública das ISOs até o momento.
@@ -32,6 +47,8 @@ Este registro resume marcos do projeto. As versões anteriores são marcos de de
 
 ## Próximos passos
 
+- Homologar a **0.3.2** nas duas edições e em hardwares diversos, verificando BIOS/UEFI, instalador e desempenho.
+- Revisar o suporte ao **português do Brasil no WPS Office**.
 - Reconstituir e publicar apenas os fontes auditados.
 - Confirmar instalação limpa, APT, Flatpak e comportamento offline **da R7** nas duas edições.
 - Revisar licença de código, dependências e ícones antes de disponibilizar ISOs.
