@@ -10,7 +10,7 @@
   <img alt="Debian 13" src="https://img.shields.io/badge/Base-Debian%2013-A81D33?style=flat-square&logo=debian&logoColor=white">
   <img alt="Desktop Xfce" src="https://img.shields.io/badge/Desktop-Xfce-2869B1?style=flat-square">
   <img alt="Edições Lite e Standard" src="https://img.shields.io/badge/Edi%C3%A7%C3%B5es-Lite%20%2B%20Standard-556B2F?style=flat-square">
-  <img alt="Versão 0.3.1 R7 em homologação" src="https://img.shields.io/badge/0.3.1%20R7-Em%20homologa%C3%A7%C3%A3o-E6A23C?style=flat-square">
+  <img alt="Versão 0.3.2 em desenvolvimento" src="https://img.shields.io/badge/0.3.2-Em%20desenvolvimento-E6A23C?style=flat-square">
 </p>
 
 [Visão geral](#visão-geral) · [PDTI Store](#pdti-store--central-própria-de-aplicativos) · [AutoTune](#autotune--otimização-inteligente) · [Edições](#edições) · [Demonstração](#demonstração-animada) · [Capturas](#capturas-de-tela) · [Status](#status-do-projeto)
@@ -29,7 +29,7 @@
 
 O **PDTI Revive** é um projeto de distribuição Linux voltado a tornar o uso do computador mais simples, mesmo em máquinas com recursos limitados. Combina a base do **Debian 13**, o ambiente gráfico **Xfce** e ferramentas desenvolvidas para facilitar a instalação de aplicativos e o ajuste do sistema.
 
-O desenvolvimento prioriza **leveza, manutenção prática e uma experiência familiar**. As duas ISOs da revisão **0.3.1 R7 (Lite e Standard) foram compiladas**, conforme confirmação do mantenedor. O projeto continua em homologação: estas imagens ainda não são anunciadas aqui como lançamentos públicos.
+O desenvolvimento prioriza **leveza, manutenção prática e uma experiência familiar**. As duas ISOs da revisão **0.3.1 R7 (Lite e Standard) foram compiladas**, conforme confirmação do mantenedor. Desde então, a edição **Lite 0.3.2-dev (build6 bootlayout)** avançou nos testes de inicialização e instalador. **0.3.2 ainda está em desenvolvimento**, e nenhuma dessas imagens é apresentada como lançamento público homologado.
 
 ## Principais recursos
 
@@ -46,7 +46,7 @@ O desenvolvimento prioriza **leveza, manutenção prática e uma experiência fa
 
 A **PDTI Store** é a loja desenvolvida para o PDTI Revive. Em vez de depender do terminal para encontrar e instalar programas, o usuário encontra uma interface gráfica organizada, integrada ao Debian 13.
 
-A versão **0.3.1-7** utiliza o catálogo online assinado **v103, com 68 aplicativos**, incluindo **Arduino IDE 2** e **Tor Browser**, e apresenta informações para ajudar o usuário a escolher programas compatíveis com o computador.
+A **PDTI Store 0.3.1-7** consulta o catálogo remoto assinado, atualmente na **v104, com 69 aplicativos**, incluindo **Arduino IDE 2**, **Tor Browser Launcher** e **WPS Office**. A loja apresenta informações para ajudar o usuário a escolher programas compatíveis com o computador.
 
 **O que ela oferece:**
 
@@ -63,12 +63,12 @@ A versão **0.3.1-7** utiliza o catálogo online assinado **v103, com 68 aplicat
 
 O catálogo da PDTI Store pode ser atualizado **sem recompilar as ISOs**. O administrador utiliza o **PDTI Store Manager** para cadastrar e publicar novas entradas em um catálogo JSON assinado digitalmente; a loja verifica a assinatura Ed25519 antes de aplicá-lo. Isso atualiza a **lista de aplicativos disponíveis**, não os binários dos programas ou o sistema operacional.
 
-- [Catálogo online v103](catalog/catalog.json) e [assinatura](catalog/catalog.json.sig): **68 aplicativos**, incluindo **Arduino IDE 2** (`cc.arduino.IDE2`) e **Tor Browser Launcher** (`org.torproject.torbrowser-launcher`), oferecidos pelo Flatpak.
+- [Catálogo online v104](catalog/catalog.json) e [assinatura](catalog/catalog.json.sig): **69 aplicativos**, incluindo **Arduino IDE 2** (`cc.arduino.IDE2`), **Tor Browser Launcher** (`org.torproject.torbrowser-launcher`) e **WPS Office** (`com.wps.Office`) via Flatpak. O WPS Office é proprietário e seu pacote do Flathub é de terceiros, não verificado pelo fabricante.
 - **R7 — ícones dinâmicos:** resolução de ícones e atualização dos metadados AppStream automaticamente ao abrir a loja, quando o Flathub e a rede estão disponíveis, sem travar a interface; a atualização respeita um intervalo entre tentativas.
 - **Modo Live CD:** o mantenedor confirmou que os novos ícones carregaram automaticamente em teste com internet, sem executar comandos manuais.
 - **Sem internet:** a loja mantém os ícones incorporados e os caches já disponíveis; ícones ainda não obtidos podem aparecer como genéricos.
 
-A sincronização do **catálogo de aplicativos** continua disponível pelas configurações da loja; a atualização automática do **AppStream** é um recurso distinto.
+A sincronização do **catálogo de aplicativos** continua disponível pelas configurações da loja; a atualização automática do **AppStream** é um recurso distinto. Em teste, o **WPS Office foi instalado pela loja**, mas o uso da interface em **pt-BR ainda não foi resolvido**.
 
 ### Escolha de aplicativos de acordo com o hardware
 
@@ -124,6 +124,18 @@ Em uma máquina virtual de teste com aproximadamente **2 GB de RAM** e armazenam
 
 > A compatibilidade e o desempenho dependem do hardware. Os requisitos mínimos definitivos serão publicados após os testes de homologação.
 
+## Evolução recente — 0.3.2 em desenvolvimento
+
+A linha **0.3.2** está sendo testada localmente e ainda não corresponde a uma versão publicada no GitHub. Os marcos abaixo refletem os testes relatados pelo mantenedor, não uma certificação de compatibilidade geral.
+
+- **Boot e instalador da Lite:** após corrigir uma falha de inicialização durante os testes, a imagem `pdti-revive-lite-amd64-0.3.2-build6-bootlayout.iso` conseguiu iniciar, carregar o ambiente e abrir diretamente o instalador, sem a mensagem exibida anteriormente.
+- **Integridade:** a verificação local por `sha256sum -c` da ISO Lite build6 retornou **SUCESSO**. SHA-256: `fb8d297f805a4bc17c14c87df5b9b4538433ba608c410f68ff7a093f9c746945`. Esse hash identifica apenas o artefato local de teste; **não há download público associado**.
+- **Compatibilidade de inicialização:** na etapa 0.3.1, imagens com GRUB2 para BIOS/UEFI foram preparadas e houve testes positivos de boot em QEMU e em notebook com BIOS Legacy. A presença de estruturas UEFI não equivale, por si só, a homologação de boot em todos os equipamentos UEFI.
+- **AutoTune:** funcionamento observado em um computador Dell. A intenção continua sendo aplicar perfis adequados a diferentes computadores, **não somente ao equipamento de teste**.
+- **PDTI Store:** o catálogo remoto chegou à **v104 (69 aplicativos)** com o **WPS Office**. Sua instalação foi testada, mas a interface em português do Brasil ainda é uma pendência.
+
+**Em aberto:** testes completos de instalação limpa da 0.3.2 (Lite e Standard), validação de BIOS/UEFI em mais máquinas, revisão de licenças, melhorias gerais de desempenho e fluidez da navegação, além da publicação auditada do código-fonte e dos scripts de compilação. Não há confirmação aqui de uma ISO Standard 0.3.2 concluída.
+
 ## Demonstração animada
 
 Veja o **PDTI Revive em funcionamento**, incluindo a área de trabalho, a PDTI Store e o AutoTune.
@@ -163,21 +175,25 @@ As imagens abaixo são de testes da **PDTI Revive 0.3.1** em máquina virtual. C
 
 ## Status do projeto
 
-**Versão em teste: 0.3.1 R7 · PDTI Store 0.3.1-7 · catálogo v103 (68 aplicativos)**
+**Linha atual em desenvolvimento: 0.3.2-dev (Lite build6) · PDTI Store 0.3.1-7 · catálogo remoto v104 (69 aplicativos)**
 
 | Marco | Situação |
 | :--- | :--- |
+| Boot e abertura direta do instalador na Lite 0.3.2 build6 | **Confirmados em teste local**, após correção de falha de inicialização |
+| SHA-256 da Lite 0.3.2 build6 | **Verificado localmente**; hash registrado acima, sem distribuição pública |
+| Compatibilidade GRUB2 em QEMU e notebook BIOS Legacy (0.3.1) | **Boot confirmado nos equipamentos testados** |
+| Catálogo remoto da PDTI Store v104 | **Publicado no GitHub** — 69 aplicativos, incluindo WPS Office |
 | Compilação das ISOs R7 Lite e Standard | **Concluída (confirmada pelo mantenedor)** |
 | Teste Live CD da R7 e carregamento automático dos ícones | **Confirmado pelo mantenedor** (edição testada não especificada) |
-| PDTI Store 0.3.1-7 e catálogo v103 | **Preparados** — 68 aplicativos |
+| PDTI Store 0.3.1-7 e catálogo original v103 da R7 | **Preparados** naquela etapa; catálogo remoto evoluiu para v104 |
 | Testes de instalação limpa Lite e Standard de revisões anteriores | **Confirmados** |
 | Instalação limpa de ambas as edições R7 | **Ainda não confirmada** |
 | Integração Flatpak/Flathub em instalação limpa anterior | **Validada** |
 | Hashes SHA-256 das ISOs R7 | **Aguardando conferência e registro público** |
-| Testes adicionais da loja e do AutoTune em VM | Em andamento |
+| Testes adicionais da loja e do AutoTune em VM | Em andamento; AutoTune também testado em computador Dell |
 | Revisão das licenças dos ícones e homologação geral | Pendente |
 
-As imagens e o pacote da loja foram arquivados com verificações de integridade. **Ainda não há um download público homologado neste repositório.**
+As imagens e o pacote da loja foram arquivados com verificações de integridade. **Ainda não há um download público homologado neste repositório.** A 0.3.2 é um desenvolvimento local; esta atualização do GitHub registra avanços de documentação, sem enviar ISOs nem o código-fonte local.
 
 <details>
 <summary><strong>Ver hashes SHA-256 de referência da R5 (artefatos anteriores)</strong></summary>
@@ -198,7 +214,13 @@ Os hashes acima são **da revisão R5**, não das ISOs R7. Os hashes R7 serão a
 - [x] Validar o **Flathub no primeiro acesso** sem configuração manual (teste confirmado pelo mantenedor em versão anterior).
 - [x] Compilar as ISOs **R7 Lite e Standard** (conclusão confirmada pelo mantenedor).
 - [x] Validar no **Live CD R7** o carregamento automático dos ícones do Flathub (teste confirmado pelo mantenedor).
+- [x] Corrigir o problema de boot observado no teste da **Lite 0.3.2 build6** e confirmar a abertura do instalador.
+- [x] Verificar localmente o SHA-256 da **Lite 0.3.2 build6**.
+- [x] Publicar o **catálogo remoto v104** com o WPS Office.
 - [ ] Concluir os testes de instalação limpa da **R7 nas duas edições**, incluindo o comportamento offline.
+- [ ] Homologar a **0.3.2 Lite e Standard** em diferentes máquinas, com BIOS e UEFI.
+- [ ] Melhorar desempenho e navegação em perfis de hardware variados; validar os ajustes sem depender de um único Dell.
+- [ ] Investigar e documentar a interface **pt-BR do WPS Office**.
 - [ ] Conferir e publicar os hashes SHA-256 dos artefatos **R7**.
 - [ ] Revisar as licenças dos ícones e outros recursos incorporados.
 - [ ] Publicar o código-fonte, os testes e os scripts de build após auditoria.
